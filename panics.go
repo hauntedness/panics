@@ -27,3 +27,11 @@ func Ignore(err error) {
 		log.Println(err)
 	}
 }
+
+func Check(err error) {
+	if err != nil {
+		_, file, line, _ := runtime.Caller(1)
+		log.Println(file + ":" + strconv.Itoa(line) + ": " + "panic!!!")
+		panic(err)
+	}
+}
