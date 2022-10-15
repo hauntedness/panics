@@ -35,3 +35,9 @@ func Check(err error) {
 		panic(err)
 	}
 }
+
+func Handle(err error, handler func(err error)) {
+	if err != nil {
+		handler(err)
+	}
+}
